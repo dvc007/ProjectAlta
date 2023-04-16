@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Form, Input, message } from "antd";
 import firebase from "firebase/compat/app";
 import "firebase/compat/database";
 import { firebaseConfig } from "./../../../firebase";
-
+import { useNavigate } from "react-router-dom";
 export default function FormLogin() {
   const layout = {
     labelCol: { span: 8 },
@@ -14,16 +14,17 @@ export default function FormLogin() {
     wrapperCol: { offset: 8, span: 16 },
   };
   const [form] = Form.useForm();
-
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
+  const [passwordIncorrect, setPasswordIncorrect] = useState(false);
   firebase.initializeApp(firebaseConfig);
   //ket noi data
   const db = firebase.database();
-
+  const navigate = useNavigate();
   const onFinish = (values: any) => {
     db.ref("users")
       .push({ values })
       .then((result) => {
-        message.success("theemthanhcong");
+        message.success("Login Success @_@");
       })
       .catch((err) => {});
     console.log("Success:", values);
@@ -31,6 +32,22 @@ export default function FormLogin() {
 
   const onFinishFailed = (errorInfo: any) => {
     console.log("Failed:", errorInfo);
+    const passwordError = errorInfo.errorFields.find(
+      (field: any) => field.name[0] === "password"
+    );
+    setShowForgotPassword(!!passwordError);
+    setPasswordIncorrect(true);
+  };
+
+  const handleForgotPasswordClicks = () => {
+    setTimeout(() => {
+      navigate("/forgotpassword");
+    }, 1000);
+  };
+  const handleForgotPasswordClick = () => {
+    setTimeout(() => {
+      navigate("/forgotpassword");
+    }, 1000);
   };
   return (
     <section>
@@ -59,7 +76,10 @@ export default function FormLogin() {
                     label="Nhập email *"
                     name="email"
                     rules={[
-                      { required: true, message: "Please input your email!" },
+                      {
+                        required: true,
+                        // message: "Please input your email!",
+                      },
                     ]}
                   >
                     <Input placeholder="Nhập địa chỉ email" />
@@ -71,21 +91,43 @@ export default function FormLogin() {
                     rules={[
                       {
                         required: true,
-                        message: "Please input your password!",
+                        // message: "Please input your password!",
                       },
                     ]}
                   >
                     <Input.Password placeholder="Nhập mật khẩu" />
                   </Form.Item>
-
+                  {passwordIncorrect ? (
+                    <label className=" text-orange-400">
+                      * Sai mật khẩu hoặc tên đăng nhập
+                    </label>
+                  ) : (
+                    <a
+                      className=" text-orange-400 mr-24 "
+                      href="/#"
+                      onClick={handleForgotPasswordClicks}
+                    >
+                      * Quên mật khẩu
+                    </a>
+                  )}
                   <Form.Item {...tailLayout}>
                     <Button
                       htmlType="submit"
-                      className="bg-amber-600 text-white "
+                      className="bg-amber-600 text-white mt-2 "
                     >
                       Đăng nhập
                     </Button>
                   </Form.Item>
+
+                  {showForgotPassword && (
+                    <a
+                      className=" text-orange-400 ml-52 "
+                      href="/#"
+                      onClick={handleForgotPasswordClick}
+                    >
+                      Quên mật khẩu *
+                    </a>
+                  )}
                 </Form>
               </div>
               <div className="w-3/5 px-5 py-8">
@@ -98,7 +140,7 @@ export default function FormLogin() {
                     />
                   </div>
                   <div className="text-black mt-48">
-                    <h3 className="text-2xl text-orange-200 font-normal">
+                    <h3 className="text-2xl text-orange-400 font-normal">
                       Hệ thống
                     </h3>
                     <h1 className="text-3xl text-orange-600 font-extrabold">
