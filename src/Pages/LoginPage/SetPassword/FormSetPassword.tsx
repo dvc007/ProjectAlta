@@ -25,7 +25,7 @@ export default function FormSetPassword() {
   };
   return (
     <section>
-      <div className="h-full">
+      <div className="h-4/5">
         <div className="w-full">
           <div className="rounded-lg shadow-lg">
             <div className="flex justify-around">
@@ -50,11 +50,9 @@ export default function FormSetPassword() {
                     <label className="block w-96 text-2xl font-bold">
                       Đặt lại mật khẩu mới
                     </label>
-                    <label className="block w-96">
-                      Vui lòng nhập email để đặc lại mật khẩu của bạn *
-                    </label>
+                    <label className="block w-96"></label>
                   </div>
-                  <div className="mx-auto mt-5">
+                  <div className="mx-auto mt-5 mr-28">
                     <Form.Item
                       name="username"
                       rules={[
@@ -96,7 +94,7 @@ export default function FormSetPassword() {
                   <div className="text-center">
                     <img
                       src={require("../../../image/forgetpass.png")}
-                      style={{ width: 600 }}
+                      style={{ width: 700 }}
                       alt="logo"
                     />
                   </div>

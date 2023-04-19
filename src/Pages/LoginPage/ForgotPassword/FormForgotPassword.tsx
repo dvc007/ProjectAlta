@@ -25,7 +25,7 @@ export default function FormForgotPassword() {
   };
   return (
     <section>
-      <div className="h-full">
+      <div className="h-4/5">
         <div className="w-full">
           <div className="rounded-lg shadow-lg">
             <div className="flex justify-around">
@@ -68,7 +68,7 @@ export default function FormForgotPassword() {
                         htmlType="submit"
                         className="bg-amber-600 text-white "
                       >
-                        Đăng nhập
+                        Tiếp tục
                       </Button>
                     </div>
                   </Form.Item>
@@ -79,7 +79,7 @@ export default function FormForgotPassword() {
                   <div className="text-center">
                     <img
                       src={require("../../../image/forgetpass.png")}
-                      style={{ width: 600 }}
+                      style={{ width: 700 }}
                       alt="logo"
                     />
                   </div>

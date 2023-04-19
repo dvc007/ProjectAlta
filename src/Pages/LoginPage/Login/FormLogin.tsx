@@ -25,6 +25,9 @@ export default function FormLogin() {
       .push({ values })
       .then((result) => {
         message.success("Login Success @_@");
+        setTimeout(() => {
+          navigate("/profile");
+        }, 1000);
       })
       .catch((err) => {});
     console.log("Success:", values);
@@ -51,7 +54,7 @@ export default function FormLogin() {
   };
   return (
     <section>
-      <div className="h-full">
+      <div className="h-4/5">
         <div className="w-full">
           <div className="rounded-lg shadow-lg">
             <div className="flex justify-around">
