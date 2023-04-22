@@ -76,8 +76,8 @@ export default function FormLogin() {
                   onFinishFailed={onFinishFailed}
                 >
                   <Form.Item
-                    label="Nhập email *"
-                    name="email"
+                    label="Tên đăng nhập *"
+                    name="username"
                     rules={[
                       {
                         required: true,
@@ -85,7 +85,7 @@ export default function FormLogin() {
                       },
                     ]}
                   >
-                    <Input placeholder="Nhập địa chỉ email" />
+                    <Input placeholder="Nhập tên đăng nhập" />
                   </Form.Item>
 
                   <Form.Item

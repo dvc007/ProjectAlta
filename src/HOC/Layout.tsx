@@ -2,17 +2,18 @@ import React from "react";
 export default function Layout() {
   return (
     <div className="m-0 font-sans font-normal text-base   bg-gray-50 text-slate-500">
-      <aside className="max-w-62.5 ease-nav-brand z-990 fixed inset-y-0 my-4 ml-4 h-full block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 bg-white p-0 antialiased shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 ">
+      <div className="max-w-62.5 ease-nav-brand z-990 fixed inset-y-0 my-4 ml-4 h-full block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 bg-white p-0 antialiased shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 ">
         <div className="h-20">
           <img
             src={require("./../image/Logo alta.png")}
-            className="inline h-full  transition-all duration-200 ease-nav-brand max-h-8"
+            className="inline h-full  transition-all duration-200 ease-nav-brand w-28 "
             alt="main_logo"
           />
         </div>
 
-        <hr className="h-px mt-0  from-transparent via-black/40 to-transparent" />
-        <div className="items-center block w-auto overflow-auto h-sidenav grow basis-full">
+        {/* <hr className="h-px mt-0  from-transparent via-black/40 to-transparent" /> */}
+
+        <div className=" mt-6 items-center block w-auto overflow-auto h-sidenav grow basis-full">
           <ul className="flex flex-col pl-0 mb-0">
             <li className="mt-0.5 w-full">
               <a
@@ -313,31 +314,28 @@ export default function Layout() {
                 </span>
               </a>
             </li>
-
-            <li className="mt-0.5 w-full">
-              <button className="bg-orange-400 text-white border-2 border-orange-100 py-2 px-4 rounded-lg">
-                <svg
-                  className="inline-block w-4 h-4 mr-2"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 3a.5.5 0 01.5.5v5a.5.5 0 01-1 0V4H6.5a.5.5 0 01-.5-.5v-2a.5.5 0 01.5-.5H10zM4.15 9.85a.5.5 0 01.7 0L9 13.29l4.15-3.44a.5.5 0 11.7.7l-4.5 3.75a.5.5 0 01-.7 0l-4.5-3.75a.5.5 0 010-.7z"
-                    clip-rule="evenodd"
-                  />
-                  <path
-                    fill-rule="evenodd"
-                    d="M2 17.5A1.5 1.5 0 013.5 16h13a1.5 1.5 0 110 3h-13A1.5 1.5 0 012 17.5z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-                Đăng xuất
-              </button>
-            </li>
           </ul>
         </div>
-      </aside>
+        <button className="bg-orange-50 mt-48 mr-12 text-orange-500 border-2 border-orange-100 py-2 px-4 rounded-lg">
+          <svg
+            className="inline-block w-4 h-4 mr-2"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 3a.5.5 0 01.5.5v5a.5.5 0 01-1 0V4H6.5a.5.5 0 01-.5-.5v-2a.5.5 0 01.5-.5H10zM4.15 9.85a.5.5 0 01.7 0L9 13.29l4.15-3.44a.5.5 0 11.7.7l-4.5 3.75a.5.5 0 01-.7 0l-4.5-3.75a.5.5 0 010-.7z"
+              clip-rule="evenodd"
+            />
+            <path
+              fill-rule="evenodd"
+              d="M2 17.5A1.5 1.5 0 013.5 16h13a1.5 1.5 0 110 3h-13A1.5 1.5 0 012 17.5z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          Đăng xuất
+        </button>
+      </div>
 
       <main className="ease-soft-in-out relative  transition-all duration-200">
         <nav
@@ -364,9 +362,9 @@ export default function Layout() {
                       src={require("./../image/Avatar.png")}
                       alt="avatar"
                     />
-                    <div className=" dark:text-white">
+                    <div className="">
                       <div className="text-xs font-normal">Xin chào</div>
-                      <div className="text-base font-bold text-gray-500 dark:text-gray-400">
+                      <div className="text-base font-bold text-black dark:text-gray-400">
                         Lê Huỳnh Ái Vân
                       </div>
                     </div>
@@ -388,7 +386,7 @@ export default function Layout() {
                 alt=""
               />
               <div className="font-medium dark:text-white mt-7">
-                <div className="text-sm text-gray-500 dark:text-gray-400">
+                <div className="text-sm  font-bold text-gray-700 dark:text-gray-400">
                   Lê Quỳnh Ái Vân
                 </div>
               </div>
