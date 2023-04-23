@@ -4,6 +4,11 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/database";
 import { firebaseConfig } from "./../../../firebase";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { userLocalService } from "./../../../service/localService";
+import { setUserLogin } from "./../../../Reduxtoolkit/userSlice";
+import { UserData } from "./../../../service/localService";
+
 export default function FormLogin() {
   const layout = {
     labelCol: { span: 8 },
@@ -17,17 +22,22 @@ export default function FormLogin() {
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [passwordIncorrect, setPasswordIncorrect] = useState(false);
   firebase.initializeApp(firebaseConfig);
-  //ket noi data
   const db = firebase.database();
   const navigate = useNavigate();
+  let dispatch = useDispatch();
   const onFinish = (values: any) => {
     db.ref("users")
       .push({ values })
       .then((result) => {
-        message.success("Login Success @_@");
-        setTimeout(() => {
-          navigate("/profile");
-        }, 1000);
+        result.ref.once("value").then((snapshot) => {
+          const userData = snapshot.val() as unknown;
+          message.success("Login Success :((");
+          dispatch(setUserLogin(userData as UserData));
+          userLocalService.set(userData as UserData);
+          setTimeout(() => {
+            navigate("/profile");
+          }, 1000);
+        });
       })
       .catch((err) => {});
     console.log("Success:", values);
