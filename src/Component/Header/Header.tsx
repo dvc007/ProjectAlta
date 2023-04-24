@@ -3,7 +3,7 @@ import Profile from "./../../Pages/LoginPage/Profile/Profile";
 
 export default function Header() {
   return (
-    <div className="m-0 font-sans font-normal text-base   bg-gray-50 text-slate-500">
+    <div className="m-0 font-sans font-normal text-base bg-gray-50 text-slate-500">
       <div className="max-w-62.5 ease-nav-brand z-990 fixed inset-y-0 my-4 ml-4 h-full block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 bg-white p-0 antialiased shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 ">
         <div className="h-20">
           <img
@@ -345,7 +345,7 @@ export default function Header() {
         >
           <div className="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
             <nav>
-              <h6 className="mb-0 font-bold capitalize text-orange-400">
+              <h6 className="pl-72 mb-0 font-bold capitalize text-orange-400">
                 Thông tin cá nhân
               </h6>
             </nav>

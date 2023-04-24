@@ -7,6 +7,7 @@ import Login from "./Pages/LoginPage/Login/Login";
 import ForgotPassword from "./Pages/LoginPage/ForgotPassword/ForgotPassword";
 import SetPassword from "./Pages/LoginPage/SetPassword/SetPassword";
 import Layout from "./HOC/Layout";
+import Header from "./Component/Header/Header";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/setpassword" element={<SetPassword />} />
-          <Route path="/profile" element={<Layout />} />
+          <Route path="/profile" element={<Header />} />
         </Routes>
       </BrowserRouter>
     </div>
